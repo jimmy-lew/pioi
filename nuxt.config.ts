@@ -4,8 +4,13 @@ export default defineNuxtConfig({
 		'@nuxtjs/tailwindcss',
 		'@nuxtjs/color-mode',
 		'@vueuse/nuxt',
+		'@pinia/nuxt',
 		'nuxt-icon',
 	],
+	imports: {
+		autoImport: true,
+		dirs: ['stores'],
+	},
 	colorMode: {
 		preference: 'system', // default theme
 		dataValue: 'theme', // activate data-theme in <html> tag
