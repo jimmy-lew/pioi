@@ -4,27 +4,23 @@ const { elementX, elementY } = useMouseInElement(target)
 </script>
 
 <template>
-	<div ref="target" class="test" :style="{ '--x': `${elementX}px`, '--y': `${elementY}px` }">
-		<div class="test-content">
-			<img src="https://lazy.so/_next/static/media/gem.23df2cf9.png" class="w-6">
-			Rediscover forgotten ideas
+	<div ref="target" class="button flex relative rounded-md bg-[#444]" :style="{ '--x': `${elementX}px`, '--y': `${elementY}px` }">
+		<div class="content">
+			<slot />
 		</div>
 	</div>
 </template>
 
 <style scoped>
-.test {
-    @apply w-32 h-24 bg-gray-800 relative rounded-lg;
-}
-
-.test::before {
+.button::before {
     @apply content-default absolute inset-0;
-    background: radial-gradient(20rem circle at var(--x) var(--y),hsla(0,0%,100%,.5),transparent 40%);
+    background: radial-gradient(6rem circle at var(--x) var(--y),hsla(0,0%,100%,.5),transparent 40%);
     border-radius: inherit;
 }
 
-.test-content {
-    @apply inset-px absolute p-4 text-white flex flex-col justify-between text-xs bg-base-100;
+.content {
+    @apply m-px py-2 px-4 text-white flex justify-between items-center gap-2 text-xs bg-base-100;
     border-radius: inherit;
+    z-index: 1000;
 }
 </style>
