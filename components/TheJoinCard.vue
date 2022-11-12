@@ -11,7 +11,7 @@ const input = ref(null)
 const parent = ref(null)
 
 const handleClick = () => {
-	const options = Object.keys(formData).length
+	const options = Object.keys(formData).length - 1
 	if (count.value > options)
 		return
 	formData[Object.keys(formData)[count.value]] = input.value.innerText
@@ -34,18 +34,18 @@ const handleClick = () => {
         px-2 xs:px-3 sm:px-4"
 	>
 		<div class="z-[100] w-full join-card-content rounded-lg flex flex-col mt-2 xs:mt-3 sm:mt-4">
-			<div class="w-full h-[48px] sm:h-[80px] max-h-[100px] px-2 sm:px-4 pt-2">
+			<div v-if="count < Object.keys(formData).length - 1" class="w-full h-[48px] sm:h-[80px] max-h-[100px] px-2 sm:px-4 pt-2">
 				<div ref="input" class="w-full h-full m-px text-left text-xs sm:text-sm md:text-base" contentEditable="true" :data-placeholder="`Please enter your ${Object.keys(formData)[count]}...`" />
 			</div>
 			<Chip class="my-2 mx-2 sm:mx-3">
 				<Icon name="line-md:calendar" class="text-[#8c8c93]" />
-				21 Jan 2023, 8am - 6pm
+				11 Mar 2023, 8am - 6pm
 			</Chip>
 		</div>
 		<div class="join-card-footer">
 			<div class="div absolute -left-4 border-t-[0.5px] -top-3 border-white/20" />
 			<div class="relative w-2/3 my-auto flex justify-start items-center text-xs sm:text-sm">
-				<NuxtLink to="https://mail.google.com/mail/u/0/#inbox" class="flex items-center gap-2">
+				<NuxtLink to="https://goo.gl/maps/zKPcBLXsqbrSGQb56" class="flex items-center gap-2">
 					<Icon name="gis:location-poi" />
 					Ngee Ann Polytechnic
 				</NuxtLink>
