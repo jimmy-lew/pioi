@@ -4,7 +4,7 @@ const { elementX, elementY } = useMouseInElement(target)
 </script>
 
 <template>
-	<div ref="target" class="button flex relative rounded-md bg-[#444]" :style="{ '--x': `${elementX}px`, '--y': `${elementY}px` }">
+	<div ref="target" class="button cursor-pointer flex relative rounded-md bg-[#444]" :style="{ '--x': `${elementX}px`, '--y': `${elementY}px` }">
 		<div class="content">
 			<slot />
 		</div>
